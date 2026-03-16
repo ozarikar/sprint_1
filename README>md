@@ -1,0 +1,34 @@
+## Tested for these things:
+- Prisoner's Dilemma game
+- Three robot strategies (AlwaysCooperate, AlwaysDefect, TitForTat)
+- Round Robin tournament format
+- Observer pattern logging system
+- Comprehensive test suite
+
+
+## Design Patterns Used:
+
+### 1. Template Method Pattern
+- Robot: Abstract class with getAction() implemented by subclasses
+- Game: Abstract class with game-specific rules in subclasses
+- Tournament: Abstract class with getBracket() for different formats
+
+### 2. Observer Pattern
+- Game acts as Subject
+- MoveListener and ScoreListener are Observers
+- Separate listener lists for moves and scores
+
+### 3. Strategy Pattern
+- Different robot behaviors via getAction() implementation
+- Easily extensible for new strategies
+
+
+
+### Test Coverage
+- RobotTest.java: Tests robot behavior, history tracking, score accumulation
+- PrisonersDilemmaTest.java: Tests game logic, scoring matrix, different scenarios
+- ListenerTest.java: Tests Observer pattern, file logging, listener management
+- RoundRobinTournamentTest.java: Tests tournament structure, matchups, final standings
+- IntegrationTest.java: test of complete system
+
+Each class has one clear purpose
