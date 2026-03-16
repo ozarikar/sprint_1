@@ -3,8 +3,6 @@ package test;
 import org.junit.Test;
 import org.junit.After;
 import static org.junit.Assert.*;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import game.*;
 import game.listener.*;
 import robot.*;
