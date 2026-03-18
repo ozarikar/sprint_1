@@ -1,8 +1,8 @@
 package test;
 
-import org.junit.Test;
-import org.junit.Before;
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeEach;
+import static org.junit.jupiter.api.Assertions.*;
 import tournament.*;
 import game.*;
 import robot.*;
@@ -16,7 +16,7 @@ public class RoundRobinTournamentTest {
     private RoundRobinTournament tournament;
     private PrisonersDilemma game;
     
-    @Before
+    @BeforeEach
     public void setUp() {
         game = new PrisonersDilemma(5);
         tournament = new RoundRobinTournament(game);

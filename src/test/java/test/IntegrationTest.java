@@ -1,8 +1,8 @@
 package test;
 
-import org.junit.Test;
-import org.junit.After;
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.AfterEach;
+import static org.junit.jupiter.api.Assertions.*;
 import game.*;
 import game.listener.*;
 import robot.*;
@@ -17,7 +17,7 @@ public class IntegrationTest {
     private String moveFile = "integration_moves.log";
     private String scoreFile = "integration_scores.log";
     
-    @After
+    @AfterEach
     public void tearDown() {
         try {
             Files.deleteIfExists(Paths.get(moveFile));

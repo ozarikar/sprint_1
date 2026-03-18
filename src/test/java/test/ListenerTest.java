@@ -1,9 +1,9 @@
 package test;
 
-import org.junit.Test;
-import org.junit.Before;
-import org.junit.After;
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.AfterEach;
+import static org.junit.jupiter.api.Assertions.*;
 import game.*;
 import game.listener.*;
 import robot.*;
@@ -20,14 +20,14 @@ public class ListenerTest {
     private String moveFile = "test_moves.log";
     private String scoreFile = "test_scores.log";
     
-    @Before
+    @BeforeEach
     public void setUp() {
         game = new PrisonersDilemma(3);
         moveListener = new MoveListener(moveFile);
         scoreListener = new ScoreListener(scoreFile);
     }
     
-    @After
+    @AfterEach
     public void tearDown() {
         moveListener.close();
         scoreListener.close();

@@ -1,19 +1,16 @@
 package test;
-
-import org.junit.Test;
-import org.junit.Before;
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeEach;
+import static org.junit.jupiter.api.Assertions.*;
 import robot.*;
-
 // Testing for Robot class and its implementations.
-
 public class RobotTest {
     
     private AlwaysCooperateBot cooperator;
     private AlwaysDefectBot defector;
     private TitForTatBot titForTat;
     
-    @Before
+    @BeforeEach
     public void setUp() {
         cooperator = new AlwaysCooperateBot("TestCooperator");
         defector = new AlwaysDefectBot("TestDefector");
