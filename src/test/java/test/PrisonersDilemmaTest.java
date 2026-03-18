@@ -52,6 +52,21 @@ public class PrisonersDilemmaTest {
         assertEquals(0, scores[0]);
         assertEquals(25, scores[1]);
     }
+    
+    @Test
+    public void testGetOpponentName() {
+        Robot r1 = new AlwaysCooperateBot("Alice");
+        Robot r2 = new AlwaysDefectBot("Bob");
+        
+        game.run(r1, r2);
+        
+        assertEquals("Bob", game.getOpponentName(r1));
+        assertEquals("Alice", game.getOpponentName(r2));
+        
+        // Robot not in the game should return null
+        Robot r3 = new AlwaysCooperateBot("Charlie");
+        assertNull(game.getOpponentName(r3));
+    }
 
     @Test
     public void testTitForTatVsDefector() {

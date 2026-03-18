@@ -5,7 +5,6 @@ REST,robot,AlwaysDefectBot,0,25,0,0,0,8,0,4,0,4
 REST,robot,AlwaysCooperateBot,0,25,0,0,0,8,0,4,0,4
 REST,game,PrisonersDilemma,18,105,7,15,5,23,6,10,1,4
 REST,game,Game,6,178,0,10,2,39,1,13,1,8
-REST,main,Main,69,0,0,0,20,0,2,0,2,0
 REST,tournament,Tournament,0,117,0,4,0,26,0,7,0,5
 REST,tournament,RoundRobinTournament,0,43,0,4,0,7,0,4,0,2
 REST,game.listener,MoveListener,6,83,2,2,2,19,2,4,0,4

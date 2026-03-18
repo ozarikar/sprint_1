@@ -1,12 +1,11 @@
 robot/Robot.class
-robot/TitForTatBot.class
-game/listener/GameListener.class
-game/Game.class
-main/Main.class
 robot/AlwaysCooperateBot.class
 game/listener/MoveListener.class
 tournament/Tournament.class
 game/PrisonersDilemma.class
+robot/TitForTatBot.class
+game/listener/GameListener.class
 robot/AlwaysDefectBot.class
 game/listener/ScoreListener.class
 tournament/RoundRobinTournament.class
+game/Game.class
