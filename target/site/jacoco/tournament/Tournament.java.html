@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Tournament.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">REST</a> &gt; <a href="index.source.html" class="el_package">tournament</a> &gt; <span class="el_source">Tournament.java</span></div><h1>Tournament.java</h1><pre class="source lang-java linenums">package tournament;
+
+import robot.Robot;
+import game.Game;
+import java.util.List;
+import java.util.ArrayList;
+
+/**
+ * Abstract class for tournaments.
+ * Template Method pattern
+ */
+public abstract class Tournament {
+    protected Game game;
+    protected List&lt;Robot&gt; players;
+    
+<span class="fc" id="L16">    public Tournament(Game game) {</span>
+<span class="fc" id="L17">        this.game = game;</span>
+<span class="fc" id="L18">        this.players = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L19">    }</span>
+    
+    // Runs the tournament
+    
+    public void checkEnd() {
+<span class="fc" id="L24">        List&lt;int[]&gt; bracket = getBracket();</span>
+        
+<span class="fc bfc" id="L26" title="All 2 branches covered.">        for (int[] matchup : bracket) {</span>
+<span class="fc" id="L27">            Robot robot1 = players.get(matchup[0]);</span>
+<span class="fc" id="L28">            Robot robot2 = players.get(matchup[1]);</span>
+            
+<span class="fc" id="L30">            System.out.println(&quot;\nMatch: &quot; + robot1.getName() + &quot; vs &quot; + robot2.getName());</span>
+<span class="fc" id="L31">            int[] finalScores = game.run(robot1, robot2);</span>
+<span class="fc" id="L32">            System.out.println(&quot;Final Scores - &quot; + robot1.getName() + &quot;: &quot; + </span>
+<span class="fc" id="L33">                             finalScores[0] + &quot;, &quot; + robot2.getName() + &quot;: &quot; + finalScores[1]);</span>
+<span class="fc" id="L34">        }</span>
+        
+<span class="fc" id="L36">        printFinalStandings();</span>
+<span class="fc" id="L37">    }</span>
+    
+    /**
+     * Abstract method that determines matchups for the tournament.
+     * @return a list of matchups, each as [player1_Index, player2_Index]
+     */
+    protected abstract List&lt;int[]&gt; getBracket();
+    
+    // Adds a robot to the tournament.
+
+    public void addPlayer(Robot robot) {
+<span class="fc" id="L48">        players.add(robot);</span>
+<span class="fc" id="L49">    }</span>
+    
+    // Prints final standings after tournament.
+
+    protected void printFinalStandings() {
+<span class="fc" id="L54">        System.out.println(&quot;\n ## Final Standings ##&quot;);</span>
+<span class="fc" id="L55">        List&lt;Robot&gt; sortedPlayers = new ArrayList&lt;&gt;(players);</span>
+<span class="fc" id="L56">        sortedPlayers.sort((r1, r2) -&gt; r2.getScore() - r1.getScore());</span>
+        
+<span class="fc" id="L58">        int rank = 1;</span>
+<span class="fc bfc" id="L59" title="All 2 branches covered.">        for (Robot robot : sortedPlayers) {</span>
+<span class="fc" id="L60">            System.out.println(rank + &quot;. &quot; + robot.getName() + &quot;: &quot; + robot.getScore() + &quot; points&quot;);</span>
+<span class="fc" id="L61">            rank++;</span>
+<span class="fc" id="L62">        }</span>
+<span class="fc" id="L63">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>
